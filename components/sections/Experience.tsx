@@ -121,7 +121,7 @@ export default function Experience() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
 
           {/* Left Column: Timeline */}
-          <div className="lg:col-span-8 relative pl-12 md:pl-20 w-full mt-6 space-y-12">
+          <div className="lg:col-span-8 relative pl-12 md:pl-20 w-full mt-6 space-y-16 md:space-y-20">
 
             {/* Ruled double red line representing notepad/file margins */}
             <div className="absolute left-[16px] md:left-[36px] top-0 bottom-0 w-[4px] border-l border-r border-red-raw opacity-40 timeline-line" />
@@ -134,21 +134,24 @@ export default function Experience() {
               >
 
                 {/* Timeline Status Node Point */}
-                <div className="absolute -left-[56px] md:-left-[76px] top-1 flex items-center justify-center">
-                  {getStatusBadge(entry.status)}
+                <div className="absolute left-[-35px] md:left-[-47px] top-[35px] w-2.5 h-2.5 bg-red-bright rounded-full border border-void transform -translate-y-1/2 z-10 flex items-center justify-center">
+                  <span className="w-1 h-1 bg-white rounded-full animate-ping opacity-75" />
                 </div>
 
                 {/* Dossier Card Container */}
-                <div className="border border-border-dim bg-surface p-6 dossier-card flex flex-col space-y-3 group hover:border-border-sharp transition-colors duration-300 relative">
+                <div className="border border-border-dim bg-surface p-6 md:p-8 dossier-card flex flex-col space-y-4 group hover:border-border-sharp transition-colors duration-300 relative">
 
                   {/* Dossier Bracket Corners */}
                   <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
 
                   {/* Metadata Header */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 relative z-10">
-                    <span className="font-tactical text-[10px] text-ghost tracking-wider uppercase">
-                      ID: {entry.id}
-                    </span>
+                  <div className="flex flex-wrap items-center justify-between gap-3 relative z-10">
+                    <div className="flex items-center space-x-3">
+                      <span className="font-tactical text-[10px] text-ghost tracking-wider uppercase">
+                        ID: {entry.id}
+                      </span>
+                      {getStatusBadge(entry.status)}
+                    </div>
                     <span className="font-tactical text-[10px] text-secondary tracking-wider">
                       {entry.period} // {entry.location}
                     </span>
@@ -162,15 +165,15 @@ export default function Experience() {
                     <div className="font-tactical text-xs text-secondary tracking-wider mt-0.5">
                       {entry.role}
                     </div>
-                    <SectionDivider className="mt-2" />
+                    <SectionDivider className="mt-2.5" />
                   </div>
 
                   {/* Bullet Brief Descriptions */}
-                  <ul className="space-y-2 font-body text-xs sm:text-sm text-primary font-light relative z-10">
+                  <ul className="space-y-3 font-body text-xs sm:text-sm text-primary font-light relative z-10">
                     {entry.bullets.map((bullet, idx) => (
                       <li key={idx} className="flex items-start">
-                        <span className="text-red-raw font-bold mr-2 select-none">&#8250;</span>
-                        <span>{bullet}</span>
+                        <span className="text-red-raw font-bold mr-2 select-none mt-0.5">&#8250;</span>
+                        <span className="leading-relaxed">{bullet}</span>
                       </li>
                     ))}
                   </ul>

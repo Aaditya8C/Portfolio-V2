@@ -111,7 +111,7 @@ export default function Contact() {
 
         {/* Section Label */}
         <div className="flex items-center justify-between">
-          <TacticalLabel>CHAPTER 5</TacticalLabel>
+          <TacticalLabel>CHAPTER 6</TacticalLabel>
           <CaseNumber num="004" />
         </div>
 
@@ -269,40 +269,40 @@ export default function Contact() {
               </h3>
               <SectionDivider />
               <div className="space-y-3 font-tactical text-[11px] uppercase tracking-wider">
-                <div className="flex justify-between items-center py-1">
-                  <span className="text-ghost">GITHUB</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 py-1.5 border-b border-border-dim border-opacity-20 last:border-none">
+                  <span className="text-ghost shrink-0">GITHUB</span>
                   <a
                     href="https://github.com/Aaditya8C"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase break-all text-left sm:text-right"
                   >
                     https://github.com/Aaditya8C
                   </a>
                 </div>
-                <div className="flex justify-between items-center py-1">
-                  <span className="text-ghost">LINKEDIN</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 py-1.5 border-b border-border-dim border-opacity-20 last:border-none">
+                  <span className="text-ghost shrink-0">LINKEDIN</span>
                   <a
                     href="https://www.linkedin.com/in/aaditya-padte-40086a233/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase break-all max-w-64"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase break-all text-left sm:text-right max-w-none sm:max-w-[280px] md:max-w-none"
                   >
                     https://www.linkedin.com/in/aaditya-padte-40086a233/
                   </a>
                 </div>
-                <div className="flex justify-between items-center py-1">
-                  <span className="text-ghost">EMAIL</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 py-1.5 border-b border-border-dim border-opacity-20 last:border-none">
+                  <span className="text-ghost shrink-0">EMAIL</span>
                   <a
-                    href="aadityajp0419@gmail.com"
-                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase"
+                    href="mailto:aadityajp0419@gmail.com"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase break-all text-left sm:text-right"
                   >
                     aadityajp0419@gmail.com
                   </a>
                 </div>
-                <div className="flex justify-between items-center py-1">
-                  <span className="text-ghost">LOCATION</span>
-                  <span className="text-primary">MUMBAI, INDIA</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 py-1.5 border-b border-border-dim border-opacity-20 last:border-none">
+                  <span className="text-ghost shrink-0">LOCATION</span>
+                  <span className="text-primary text-left sm:text-right">MUMBAI, INDIA</span>
                 </div>
               </div>
             </div>

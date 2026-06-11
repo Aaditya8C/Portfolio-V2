@@ -10,6 +10,8 @@ import SectionDivider from "@/components/ui/SectionDivider";
 export default function Hero() {
   const [typedName, setTypedName] = useState("");
   const [showCursor, setShowCursor] = useState(true);
+  const [isTypewriterDone, setIsTypewriterDone] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     const fullName = "AADITYA PADTE";
@@ -23,6 +25,7 @@ export default function Hero() {
         timer = setTimeout(typeWriter, 80); // 80ms per character
       } else {
         setShowCursor(false);
+        setIsTypewriterDone(true);
       }
     };
 
@@ -35,6 +38,16 @@ export default function Hero() {
       clearTimeout(timer);
     };
   }, []);
+
+  useEffect(() => {
+    if (!isTypewriterDone) return;
+
+    const interval = setInterval(() => {
+      setIsFlipped((prev) => !prev);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isTypewriterDone]);
 
   const handleScrollToDossier = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -95,17 +108,59 @@ export default function Hero() {
             <SectionDivider className="mt-1" />
           </div>
 
-          {/* Name Display - Typewriter Animation */}
-          <div className="min-h-[50px] sm:min-h-[75px] md:min-h-[90px] lg:min-h-[110px] flex items-center">
-            <h1
-              className="font-display text-5xl sm:text-7xl lg:text-[85px] xl:text-[105px] tracking-wide text-white uppercase font-bold select-none md:whitespace-nowrap flex items-center leading-none"
-            >
-              <span>{typeFirst}</span>
-              <span className="text-red-raw ml-4">{typeLast}</span>
-              {showCursor && (
-                <span className="w-[10px] sm:w-[14px] lg:w-[18px] h-[0.85em] bg-red-bright ml-2 inline-block animate-[blink_0.8s_infinite] align-middle shrink-0" />
-              )}
-            </h1>
+          {/* Name Display - Typewriter Animation & 3D Codename Flip */}
+          <div className="min-h-[50px] sm:min-h-[75px] md:min-h-[90px] lg:min-h-[110px] flex items-center w-full">
+            {isTypewriterDone ? (
+              <div
+                className="w-full relative cursor-pointer"
+                style={{ perspective: "1000px" }}
+                onClick={() => setIsFlipped(!isFlipped)}
+              >
+                <div
+                  className="relative w-full transition-transform duration-[800ms]"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: isFlipped ? "rotateX(180deg)" : "rotateX(0deg)",
+
+                  }}
+                >
+                  {/* Front Side: Real Name */}
+                  <div
+                    className="w-full"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <h1 className="font-display text-5xl sm:text-7xl lg:text-[85px] xl:text-[105px] tracking-wide text-white uppercase font-bold select-none md:whitespace-nowrap leading-none flex items-center">
+                      <span>AADITYA</span>
+                      <span className="text-red-raw ml-4 sm:ml-6">PADTE</span>
+                    </h1>
+                  </div>
+
+                  {/* Back Side: Codename */}
+                  <div
+                    className="absolute inset-0 w-full h-full"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      transform: "rotateX(180deg)",
+                    }}
+                  >
+                    <h1 className="font-display text-5xl sm:text-7xl lg:text-[85px] xl:text-[105px] tracking-wide text-white uppercase font-bold select-none md:whitespace-nowrap leading-none flex items-center">
+                      <span>DEVX</span>
+                      <span className="text-red-raw">008</span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <h1
+                className="font-display text-5xl sm:text-7xl lg:text-[85px] xl:text-[105px] tracking-wide text-white uppercase font-bold select-none md:whitespace-nowrap flex items-center leading-none"
+              >
+                <span>{typeFirst}</span>
+                <span className="text-red-raw ml-4">{typeLast}</span>
+                {showCursor && (
+                  <span className="w-[10px] sm:w-[14px] lg:w-[18px] h-[0.85em] bg-red-bright ml-2 inline-block animate-[blink_0.8s_infinite] align-middle shrink-0" />
+                )}
+              </h1>
+            )}
           </div>
 
           {/* Horizontal rule separator */}
@@ -173,7 +228,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/aaditya-filtered.png"
+                src="/aadi.png"
                 alt="Operative Aaditya Padte"
                 fill
                 sizes="(max-width: 768px) 100vw, 380px"

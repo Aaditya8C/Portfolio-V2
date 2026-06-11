@@ -10,12 +10,13 @@ export default function Navbar() {
   const links = [
     { label: "INTEL", href: "#intel" },
     { label: "MISSIONS", href: "#missions" },
+    { label: "DEPLOYMENT", href: "#experience" },
     { label: "ARSENAL", href: "#arsenal" },
     { label: "CONTACT", href: "#contact" },
   ];
 
   useEffect(() => {
-    const sectionIds = ["intel", "missions", "arsenal", "contact"];
+    const sectionIds = ["intel", "missions", "experience", "arsenal", "contact"];
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {

@@ -14,6 +14,7 @@ import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import TechStack from "@/components/sections/TechStack";
+import IntelNetwork from "@/components/sections/IntelNetwork";
 import Journey from "@/components/sections/Journey";
 import Contact from "@/components/sections/Contact";
 
@@ -40,6 +41,9 @@ export default function Home() {
 
         {/* Arsenal (Tech Stack) Section */}
         <TechStack />
+
+        {/* Intel Network Section */}
+        <IntelNetwork />
 
         {/* Journey (Field Intelligence) Section */}
         <Journey />
