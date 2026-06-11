@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="w-full bg-transparent py-8 border-t border-border-dim font-tactical text-[11px] text-ghost select-none">
       <div className="max-w-[1200px] mx-auto px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          AK // AADITYA KULKARNI // MUMBAI // 2025
+          AP // AADITYA PADTE // MUMBAI // 2025
         </div>
         <a
           href="#"

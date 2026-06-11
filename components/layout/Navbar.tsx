@@ -16,7 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const sectionIds = ["intel", "missions", "arsenal", "contact"];
-    
+
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -72,7 +72,7 @@ export default function Navbar() {
             className="font-display text-2xl text-white tracking-widest hover:text-red-bright transition-colors duration-200"
             id="nav-logo"
           >
-            AK
+            AP
           </a>
 
           {/* Desktop Nav Links */}

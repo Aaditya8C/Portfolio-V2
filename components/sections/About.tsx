@@ -138,18 +138,18 @@ export default function About() {
       </div>
 
       <div className="container w-full flex flex-col space-y-8 text-left">
-        
+
         {/* Section Label */}
         <div className="flex items-center">
-          <TacticalLabel>OPERATIVE PROFILE</TacticalLabel>
+          <TacticalLabel>CHAPTER 1</TacticalLabel>
         </div>
 
         {/* Two-Column Grid Layout on Desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
-          
+
           {/* LEFT COLUMN: Heading, case specs, and paragraphs */}
           <div className="lg:col-span-8 flex flex-col space-y-6">
-            
+
             {/* Heading Panel & Red Divider */}
             <div className="about-heading w-full space-y-4">
               <h2 className="font-display text-5xl md:text-6xl text-white tracking-widest uppercase">
@@ -161,7 +161,7 @@ export default function About() {
             {/* Case Dossier Specs */}
             <div className="about-content w-full flex flex-col space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-tactical text-xs border border-border-dim bg-surface p-6 dossier-card">
-                
+
                 {/* Dossier ID */}
                 <div className="sm:col-span-2 pb-2">
                   <CaseNumber num="001" />
@@ -172,7 +172,7 @@ export default function About() {
                     SUBJECT
                   </div>
                   <div className="text-white text-sm font-medium">
-                    AADITYA KULKARNI
+                    AADITYA PADTE
                   </div>
                 </div>
 
@@ -208,15 +208,15 @@ export default function About() {
               {/* Dossier Text Paragraphs */}
               <div className="space-y-4 font-body text-primary font-light text-sm md:text-base leading-relaxed">
                 <p>
-                  Subject has operated across the full application stack since 2022. Known for building 
-                  systems under pressure, optimizing critical rendering pathways, and shipping lightweight, 
-                  scalable builds. Specialized in React/Next.js architectures, secure Web3 smart contracts, 
+                  Subject has operated across the full application stack since 2022. Known for building
+                  systems under pressure, optimizing critical rendering pathways, and shipping lightweight,
+                  scalable builds. Specialized in React/Next.js architectures, secure Web3 smart contracts,
                   and production-grade backend infrastructure.
                 </p>
                 <p>
-                  Last deployed at JPMorgan Chase as a Software Engineering Intern, handling enterprise 
-                  financial infrastructure and core developer services. Active profile maintains constant 
-                  commitment to low-latency operations, clean codebase compilation, and robust performance 
+                  Last deployed at JPMorgan Chase as a Software Engineering Intern, handling enterprise
+                  financial infrastructure and core developer services. Active profile maintains constant
+                  commitment to low-latency operations, clean codebase compilation, and robust performance
                   benchmarks.
                 </p>
               </div>

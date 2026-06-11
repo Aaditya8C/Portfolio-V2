@@ -93,10 +93,10 @@ export default function TechStack() {
       </div>
 
       <div className="container w-full flex flex-col space-y-8 text-left">
-        
+
         {/* Section Label */}
         <div className="flex items-center justify-between">
-          <TacticalLabel>ARSENAL</TacticalLabel>
+          <TacticalLabel>CHAPTER 4</TacticalLabel>
           <CaseNumber num="003" />
         </div>
 
@@ -125,7 +125,7 @@ export default function TechStack() {
                 </span>
                 <span className="font-tactical text-[9px] text-ghost select-none">INV-ID // {cat.id}</span>
               </div>
-              
+
               <SectionDivider className="opacity-20 relative z-10" />
 
               {/* Items List */}
@@ -133,12 +133,14 @@ export default function TechStack() {
                 {cat.items.map((item) => (
                   <div
                     key={item.name}
-                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 text-[12px] border-b border-border-dim border-opacity-30 pb-2 last:border-none last:pb-0"
+                    className="flex flex-col sm:grid sm:grid-cols-12 sm:items-center gap-1 sm:gap-4 text-[12px] border-b border-border-dim border-opacity-30 pb-2 last:border-none last:pb-0"
                   >
-                    <span className="text-primary">{item.name}</span>
-                    <div className="flex items-center justify-between sm:justify-start gap-4">
-                      {renderProficiencyBlocks(item.rating)}
-                      <span className="text-secondary text-[10px] font-bold tracking-widest min-w-[70px] text-right uppercase">
+                    <span className="text-primary sm:col-span-5">{item.name}</span>
+                    <div className="flex items-center justify-between sm:contents">
+                      <div className="sm:col-span-3 flex justify-start">
+                        {renderProficiencyBlocks(item.rating)}
+                      </div>
+                      <span className="text-secondary text-[10px] font-bold tracking-widest text-right uppercase sm:col-span-4 sm:text-right">
                         {item.label}
                       </span>
                     </div>

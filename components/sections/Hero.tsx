@@ -12,7 +12,7 @@ export default function Hero() {
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    const fullName = "AADITYA KULKARNI";
+    const fullName = "AADITYA PADTE";
     let index = 0;
     let timer: any = null;
 
@@ -66,6 +66,9 @@ export default function Hero() {
     }
   };
 
+  const typeFirst = typedName.slice(0, 8);
+  const typeLast = typedName.slice(8);
+
   return (
     <section
       id="hero"
@@ -97,7 +100,8 @@ export default function Hero() {
             <h1
               className="font-display text-5xl sm:text-7xl lg:text-[85px] xl:text-[105px] tracking-wide text-white uppercase font-bold select-none md:whitespace-nowrap flex items-center leading-none"
             >
-              {typedName}
+              <span>{typeFirst}</span>
+              <span className="text-red-raw ml-4">{typeLast}</span>
               {showCursor && (
                 <span className="w-[10px] sm:w-[14px] lg:w-[18px] h-[0.85em] bg-red-bright ml-2 inline-block animate-[blink_0.8s_infinite] align-middle shrink-0" />
               )}
@@ -169,8 +173,8 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/profile-dummy.jpg"
-                alt="Operative Aaditya Kulkarni"
+                src="/aaditya.jpeg"
+                alt="Operative Aaditya Padte"
                 fill
                 sizes="(max-width: 768px) 100vw, 380px"
                 className="object-cover grayscale contrast-[1.2] brightness-[0.88] transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
@@ -195,12 +199,6 @@ export default function Hero() {
 
         </div>
 
-      </div>
-
-      {/* Decorative side clearance labels */}
-      <div className="absolute bottom-8 right-8 hidden lg:flex flex-col text-right font-tactical text-[8px] text-ghost/40 select-none pointer-events-none tracking-widest">
-        <span>ANTIGRAVITY // DHURANDHAR SYSTEM CODEX</span>
-        <span>SYS.SYS // LATENCY SHARP 60FPS</span>
       </div>
     </section>
   );

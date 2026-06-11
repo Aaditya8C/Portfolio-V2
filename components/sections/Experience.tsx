@@ -103,10 +103,10 @@ export default function Experience() {
       </div>
 
       <div className="container w-full flex flex-col space-y-8 text-left">
-        
+
         {/* Section Label */}
         <div className="flex items-center">
-          <TacticalLabel>DEPLOYMENT RECORD</TacticalLabel>
+          <TacticalLabel>CHAPTER 3</TacticalLabel>
         </div>
 
         {/* Section Title */}
@@ -117,65 +117,113 @@ export default function Experience() {
           <SectionDivider />
         </div>
 
-        {/* Timeline Container */}
-        <div className="relative pl-12 md:pl-20 max-w-[800px] w-full mt-6 space-y-12">
-          
-          {/* Ruled double red line representing notepad/file margins */}
-          <div className="absolute left-[16px] md:left-[36px] top-0 bottom-0 w-[4px] border-l border-r border-red-raw opacity-40 timeline-line" />
+        {/* Two-Column Grid for Timeline & Archive metadata */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
 
-          {/* Entries Loop */}
-          {experience.map((entry) => (
-            <div
-              key={entry.id}
-              className="experience-entry relative flex flex-col space-y-4"
-            >
-              
-              {/* Timeline Status Node Point */}
-              <div className="absolute -left-[56px] md:-left-[76px] top-1 flex items-center justify-center">
-                {getStatusBadge(entry.status)}
-              </div>
+          {/* Left Column: Timeline */}
+          <div className="lg:col-span-8 relative pl-12 md:pl-20 w-full mt-6 space-y-12">
 
-              {/* Dossier Card Container */}
-              <div className="border border-border-dim bg-surface p-6 dossier-card flex flex-col space-y-3 group hover:border-border-sharp transition-colors duration-300">
-                
-                {/* Dossier Bracket Corners */}
-                <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
+            {/* Ruled double red line representing notepad/file margins */}
+            <div className="absolute left-[16px] md:left-[36px] top-0 bottom-0 w-[4px] border-l border-r border-red-raw opacity-40 timeline-line" />
 
-                {/* Metadata Header */}
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-tactical text-[10px] text-ghost tracking-wider uppercase">
-                    ID: {entry.id}
-                  </span>
-                  <span className="font-tactical text-[10px] text-secondary tracking-wider">
-                    {entry.period} // {entry.location}
-                  </span>
+            {/* Entries Loop */}
+            {experience.map((entry) => (
+              <div
+                key={entry.id}
+                className="experience-entry relative flex flex-col space-y-4"
+              >
+
+                {/* Timeline Status Node Point */}
+                <div className="absolute -left-[56px] md:-left-[76px] top-1 flex items-center justify-center">
+                  {getStatusBadge(entry.status)}
                 </div>
 
-                {/* Org & Role */}
-                <div>
-                  <h3 className="font-display text-2xl sm:text-3xl text-white tracking-wide uppercase group-hover:text-red-bright transition-colors duration-200">
-                    {entry.org}
-                  </h3>
-                  <div className="font-tactical text-xs text-secondary tracking-wider mt-0.5">
-                    {entry.role}
+                {/* Dossier Card Container */}
+                <div className="border border-border-dim bg-surface p-6 dossier-card flex flex-col space-y-3 group hover:border-border-sharp transition-colors duration-300 relative">
+
+                  {/* Dossier Bracket Corners */}
+                  <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
+
+                  {/* Metadata Header */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 relative z-10">
+                    <span className="font-tactical text-[10px] text-ghost tracking-wider uppercase">
+                      ID: {entry.id}
+                    </span>
+                    <span className="font-tactical text-[10px] text-secondary tracking-wider">
+                      {entry.period} // {entry.location}
+                    </span>
                   </div>
-                  <SectionDivider className="mt-2" />
+
+                  {/* Org & Role */}
+                  <div className="relative z-10">
+                    <h3 className="font-display text-2xl sm:text-3xl text-white tracking-wide uppercase group-hover:text-red-bright transition-colors duration-200">
+                      {entry.org}
+                    </h3>
+                    <div className="font-tactical text-xs text-secondary tracking-wider mt-0.5">
+                      {entry.role}
+                    </div>
+                    <SectionDivider className="mt-2" />
+                  </div>
+
+                  {/* Bullet Brief Descriptions */}
+                  <ul className="space-y-2 font-body text-xs sm:text-sm text-primary font-light relative z-10">
+                    {entry.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <span className="text-red-raw font-bold mr-2 select-none">&#8250;</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
                 </div>
 
-                {/* Bullet Brief Descriptions */}
-                <ul className="space-y-2 font-body text-xs sm:text-sm text-primary font-light">
-                  {entry.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <span className="text-red-raw font-bold mr-2 select-none">&#8250;</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-
               </div>
+            ))}
 
+          </div>
+
+          {/* Right Column: Decorative Archive metadata sidebar (desktop only) */}
+          <div className="hidden lg:flex lg:col-span-4 flex-col space-y-6 pl-8 border-l border-border-dim border-opacity-40 select-none">
+
+            <div className="space-y-2">
+              <span className="font-tactical text-[10px] text-accent tracking-widest uppercase block">
+                [ SYSTEM TELEMETRY ]
+              </span>
+              <div className="font-tactical text-[11px] text-secondary leading-relaxed space-y-1.5 uppercase">
+                <div>RECORD-ID // REC-992-01</div>
+                <div>CLASSIFICATION // CONFIDENTIAL</div>
+                <div>CLEARANCE // LEVEL 5 REQUIRED</div>
+                <div>CHECKSUM // SHA-256 OK</div>
+              </div>
             </div>
-          ))}
+
+            <SectionDivider className="opacity-20" />
+
+            <div className="space-y-3 font-tactical text-[11px] uppercase tracking-wider">
+              <div className="flex justify-between items-center py-1">
+                <span className="text-ghost">STATUS</span>
+                <span className="text-red-bright font-bold">● ACTIVE RECORD</span>
+              </div>
+              <div className="flex justify-between items-center py-1">
+                <span className="text-ghost">LAST ARCHIVE INDEX</span>
+                <span className="text-secondary">JUNE 2026</span>
+              </div>
+              <div className="flex justify-between items-center py-1">
+                <span className="text-ghost">STATION</span>
+                <span className="text-primary">MUMBAI HQ</span>
+              </div>
+            </div>
+
+            <SectionDivider className="opacity-20" />
+
+            {/* Enormous Watermark */}
+            <div className="pt-8 opacity-[0.03] flex items-center justify-center">
+              <span className="font-stamp text-[80px] font-bold text-white tracking-widest uppercase rotate-[90deg] origin-center translate-y-12">
+                ARCHIVE
+              </span>
+            </div>
+
+          </div>
 
         </div>
 

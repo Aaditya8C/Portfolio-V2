@@ -6,6 +6,7 @@ import { journeyMilestones } from "@/lib/data/journey";
 import TacticalLabel from "@/components/ui/TacticalLabel";
 import CaseNumber from "@/components/ui/CaseNumber";
 import SectionDivider from "@/components/ui/SectionDivider";
+import { ScrollTrigger } from "gsap/all";
 
 export default function Journey() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -19,41 +20,31 @@ export default function Journey() {
         if (!track || !section) return;
 
         const matchMedia = window.matchMedia("(min-width: 768px)");
-        
-        const setupScroll = () => {
-          if (matchMedia.matches) {
-            const scrollWidth = track.scrollWidth;
-            const viewportWidth = window.innerWidth;
-            const xTranslation = scrollWidth - viewportWidth;
 
-            if (xTranslation > 0) {
-              gsap.to(track, {
-                x: -xTranslation,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: section,
-                  start: "top top",
-                  end: () => `+=${xTranslation}`,
-                  pin: true,
-                  scrub: 1,
-                  invalidateOnRefresh: true,
-                },
-              });
-            }
-          }
-        };
-
-        setupScroll();
-
-        // Re-run setup on orientation or resize changes
-        window.addEventListener("resize", setupScroll);
-        return () => {
-          window.removeEventListener("resize", setupScroll);
-        };
+        if (matchMedia.matches) {
+          gsap.to(track, {
+            x: () => -(track.scrollWidth - window.innerWidth),
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: () => `+=${track.scrollWidth - window.innerWidth}`,
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+        }
       }, sectionRef);
+
+      // Trigger a refresh after components/fonts render completely
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 500);
 
       return () => {
         ctx.revert();
+        clearTimeout(timer);
       };
     }
   }, []);
@@ -143,7 +134,7 @@ export default function Journey() {
 
       {/* Mobile Layout: Standard vertical stack */}
       <div className="container w-full flex flex-col space-y-8 text-left md:hidden">
-        
+
         {/* Header */}
         <div className="flex items-center">
           <TacticalLabel>FIELD REPORT INDEX</TacticalLabel>

@@ -21,7 +21,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const formContainerRef = useRef<HTMLDivElement>(null);
   const successContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -62,7 +62,7 @@ export default function Contact() {
     setIsSubmitting(true);
     // Simulate Resend transmission delay
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     // Animate out form container using GSAP
     if (formContainerRef.current) {
       gsap.to(formContainerRef.current, {
@@ -74,7 +74,7 @@ export default function Contact() {
           setIsSubmitted(true);
           setIsSubmitting(false);
           reset();
-          
+
           // Animate in success panel
           setTimeout(() => {
             if (successContainerRef.current) {
@@ -108,10 +108,10 @@ export default function Contact() {
       </div>
 
       <div className="container w-full flex flex-col space-y-8 text-left">
-        
+
         {/* Section Label */}
         <div className="flex items-center justify-between">
-          <TacticalLabel>CONTACT // DIRECT TRANSMISSION</TacticalLabel>
+          <TacticalLabel>CHAPTER 5</TacticalLabel>
           <CaseNumber num="004" />
         </div>
 
@@ -125,10 +125,10 @@ export default function Contact() {
 
         {/* Two-Column Dossier Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-6 w-full">
-          
+
           {/* Left Column: Form / Success Card */}
           <div className="lg:col-span-7 flex flex-col w-full">
-            
+
             {isSubmitted ? (
               /* Success Panel */
               <div
@@ -137,7 +137,7 @@ export default function Contact() {
               >
                 {/* Dossier Corner brackets */}
                 <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
-                
+
                 <div className="flex items-center justify-center space-x-3 text-red-bright font-tactical text-md sm:text-lg tracking-widest uppercase">
                   <span>TRANSMISSION CONFIRMED</span>
                   <span className="status-dot" />
@@ -174,7 +174,7 @@ export default function Contact() {
                 <SectionDivider />
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                  
+
                   {/* Field Name */}
                   <div className="flex flex-col space-y-1">
                     <label className="font-tactical text-[10px] text-secondary uppercase tracking-widest">
@@ -185,7 +185,7 @@ export default function Contact() {
                       <input
                         type="text"
                         placeholder="ENTER CODENAME OR IDENTIFIER"
-                        className="bg-transparent border-none border-b border-border-mid text-primary font-tactical text-[13px] py-2 px-1 w-full outline-none transition-colors duration-200 focus:border-b-red-bright placeholder-ghost uppercase"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
                         disabled={isSubmitting}
                         {...register("name")}
                       />
@@ -207,7 +207,7 @@ export default function Contact() {
                       <input
                         type="text"
                         placeholder="ENTER AUDITED TRANSMISSION EMAIL"
-                        className="bg-transparent border-none border-b border-border-mid text-primary font-tactical text-[13px] py-2 px-1 w-full outline-none transition-colors duration-200 focus:border-b-red-bright placeholder-ghost uppercase"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
                         disabled={isSubmitting}
                         {...register("email")}
                       />
@@ -229,7 +229,7 @@ export default function Contact() {
                       <textarea
                         placeholder="DEFINE TARGET INSTRUCTIONS, TIMELINES AND DELIVERABLES..."
                         rows={4}
-                        className="bg-transparent border-none border-b border-border-mid text-primary font-tactical text-[13px] py-2 px-1 w-full outline-none transition-colors duration-200 focus:border-b-red-bright placeholder-ghost uppercase resize-none"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase resize-none"
                         disabled={isSubmitting}
                         {...register("message")}
                       />
@@ -261,7 +261,7 @@ export default function Contact() {
 
           {/* Right Column: Direct Channels & Status */}
           <div className="lg:col-span-5 flex flex-col space-y-8">
-            
+
             {/* Direct Channels */}
             <div className="space-y-4">
               <h3 className="font-tactical text-xs text-secondary tracking-widest uppercase">
@@ -272,32 +272,32 @@ export default function Contact() {
                 <div className="flex justify-between items-center py-1">
                   <span className="text-ghost">GITHUB</span>
                   <a
-                    href="https://github.com/aadityakulkarni"
+                    href="https://github.com/Aaditya8C"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-red-bright transition-colors duration-200"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase"
                   >
-                    github.com/aadityakulkarni
+                    https://github.com/Aaditya8C
                   </a>
                 </div>
                 <div className="flex justify-between items-center py-1">
                   <span className="text-ghost">LINKEDIN</span>
                   <a
-                    href="https://linkedin.com/in/aadityakulkarni"
+                    href="https://www.linkedin.com/in/aaditya-padte-40086a233/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:text-red-bright transition-colors duration-200"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase break-all max-w-64"
                   >
-                    linkedin.com/in/aadityakulkarni
+                    https://www.linkedin.com/in/aaditya-padte-40086a233/
                   </a>
                 </div>
                 <div className="flex justify-between items-center py-1">
                   <span className="text-ghost">EMAIL</span>
                   <a
-                    href="mailto:aadityakulkarni@vjti.ac.in"
-                    className="text-primary hover:text-red-bright transition-colors duration-200"
+                    href="aadityajp0419@gmail.com"
+                    className="text-primary hover:text-red-bright transition-colors duration-200 lowercase"
                   >
-                    aadityakulkarni@vjti.ac.in
+                    aadityajp0419@gmail.com
                   </a>
                 </div>
                 <div className="flex justify-between items-center py-1">
@@ -321,10 +321,6 @@ export default function Contact() {
                 <li className="flex items-center space-x-3">
                   <span className="text-ghost select-none">●</span>
                   <span className="text-primary">BUILDING SIDE VENTURES</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <span className="text-red-bright select-none">●</span>
-                  <span className="text-primary">AVAILABLE JAN 2025</span>
                 </li>
               </ul>
             </div>
