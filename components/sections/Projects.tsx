@@ -6,15 +6,18 @@ import { projects, Project } from "@/lib/data/projects";
 import TacticalLabel from "@/components/ui/TacticalLabel";
 import CaseNumber from "@/components/ui/CaseNumber";
 import SectionDivider from "@/components/ui/SectionDivider";
-import { HardHat, BrainCircuit } from "lucide-react";
+import { HardHat, BrainCircuit, GitBranch } from "lucide-react";
 
-// Dynamic icon resolver for mental health classification and construction management
+// Dynamic icon resolver for mental health classification, dev contribution analysis, and construction management
 const ProjectIcon = ({ title, className }: { title: string; className?: string }) => {
   if (title.toLowerCase().includes("contrall")) {
     return <HardHat className={`${className} text-[#FF8C00]`} size={24} />;
   }
   if (title.toLowerCase().includes("depression")) {
     return <BrainCircuit className={`${className} text-red-bright`} size={24} />;
+  }
+  if (title.toLowerCase().includes("devtrace")) {
+    return <GitBranch className={`${className} text-[#4ade80]`} size={24} />;
   }
   return null;
 };
@@ -92,111 +95,130 @@ export default function Projects() {
               </span>
             </div>
 
-            {/* Card Content */}
-            <div className="relative z-10 flex flex-col space-y-4">
+            {/* Card Content - Grid Split on large screens */}
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
-              {/* Header Info Strip */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
+              {/* Left Column: Info */}
+              <div className="lg:col-span-7 flex flex-col space-y-4">
+
+                {/* Header Info Strip */}
+                <div className="flex items-center justify-between">
                   <CaseNumber num={featuredProject.id.replace("CASE-", "")} />
-                  {featuredProject.logo ? (
-                    <div className="relative w-12 h-12 rounded-md overflow-hidden bg-void border border-border-dim p-1.5 flex items-center justify-center shrink-0">
-                      <img
-                        src={featuredProject.logo}
-                        alt={`${featuredProject.title} logo`}
-                        className="object-contain max-w-full max-h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                      />
+                  <span className="font-tactical text-[9px] text-red-bright border border-red-raw px-2 py-0.5 select-none bg-red-stain">
+                    {featuredProject.status}
+                  </span>
+                </div>
+
+                {/* Title & Role Info */}
+                <div className="pt-2">
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+                    <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white tracking-wide uppercase">
+                      OPERATION: {featuredProject.title.split("–")[0].split("-")[0].trim()}
+                    </h3>
+                    {featuredProject.period && (
+                      <span className="font-tactical text-[10px] text-secondary tracking-widest uppercase shrink-0 bg-void border border-border-dim px-2 py-0.5">
+                        {featuredProject.role} // {featuredProject.period}
+                      </span>
+                    )}
+                  </div>
+                  <SectionDivider className="mt-2" />
+                </div>
+
+                {/* Objective & Description / Bullets */}
+                <div className="space-y-4 font-body text-xs sm:text-sm max-w-3xl">
+                  <div>
+                    <span className="font-tactical text-accent mr-2 uppercase text-[11px] tracking-wider">[ OBJECTIVE ]</span>
+                    <span className="text-primary font-light">{featuredProject.objective}</span>
+                  </div>
+                  {featuredProject.bullets ? (
+                    <div className="space-y-2 pt-1">
+                      <span className="font-tactical text-secondary block uppercase text-[11px] tracking-wider mb-2">[ REQUISITION REPORT / HIGHLIGHTS ]</span>
+                      <ul className="space-y-2 font-body text-xs sm:text-sm text-primary font-light pl-1">
+                        {featuredProject.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-red-raw font-bold mr-2 select-none">&#8250;</span>
+                            <span className="text-secondary leading-relaxed font-light">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ) : (
-                    <div className="w-12 h-12 rounded-md bg-void border border-border-dim flex items-center justify-center shrink-0">
-                      <ProjectIcon title={featuredProject.title} />
+                    <div>
+                      <span className="font-tactical text-secondary mr-2 uppercase text-[11px] tracking-wider">[ TARGET ]</span>
+                      <span className="text-secondary font-light">{featuredProject.description}</span>
                     </div>
                   )}
                 </div>
-                <span className="font-tactical text-[9px] text-red-bright border border-red-raw px-2 py-0.5 select-none bg-red-stain">
-                  {featuredProject.status}
-                </span>
-              </div>
 
-              {/* Title & Role Info */}
-              <div className="pt-2">
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
-                  <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white tracking-wide uppercase">
-                    OPERATION: {featuredProject.title}
-                  </h3>
-                  {featuredProject.period && (
-                    <span className="font-tactical text-[10px] text-secondary tracking-widest uppercase shrink-0 bg-void border border-border-dim px-2 py-0.5">
-                      {featuredProject.role} // {featuredProject.period}
+                {/* Tech Deployed */}
+                <div className="font-tactical text-[11px] text-[#8B9E6E] pt-2">
+                  TECH DEPLOYED: {featuredProject.stack.join(" // ")}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-4 pt-4">
+                  {featuredProject.github && featuredProject.github !== "#" ? (
+                    <a
+                      href={featuredProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary text-center"
+                      id="featured-open-file-btn"
+                    >
+                      Open File
+                    </a>
+                  ) : (
+                    <span className="font-tactical text-[11px] text-red-raw border border-red-raw/40 px-3 py-2 bg-red-stain/10 select-none cursor-not-allowed uppercase tracking-wider">
+                      [ SOURCE CLASSIFIED ]
+                    </span>
+                  )}
+
+                  {featuredProject.live && featuredProject.live !== "#" ? (
+                    <a
+                      href={featuredProject.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-secondary group text-center"
+                      id="featured-field-report-btn"
+                    >
+                      Field Report <span className="arrow transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                  ) : (
+                    <span className="font-tactical text-[11px] text-secondary/50 border border-border-dim px-3 py-2 select-none cursor-not-allowed uppercase tracking-wider">
+                      [ OFFLINE / INTERNAL ]
                     </span>
                   )}
                 </div>
-                <SectionDivider className="mt-2" />
+
               </div>
 
-              {/* Objective & Description / Bullets */}
-              <div className="space-y-4 font-body text-xs sm:text-sm max-w-3xl">
-                <div>
-                  <span className="font-tactical text-accent mr-2 uppercase text-[11px] tracking-wider">[ OBJECTIVE ]</span>
-                  <span className="text-primary font-light">{featuredProject.objective}</span>
+              {/* Right Column: Screenshot Visual Attachment */}
+              <div className="lg:col-span-5 flex flex-col justify-center items-center w-full">
+                <div className="relative w-full aspect-[16/10] border border-border-dim bg-void overflow-hidden shadow-2xl group/photo select-none">
+                  {featuredProject.logo ? (
+                    <img
+                      src={featuredProject.logo}
+                      alt={`${featuredProject.title} preview`}
+                      className="object-cover w-full h-full grayscale contrast-[1.15] brightness-[0.85] transition-all duration-500 group-hover/photo:scale-103 group-hover/photo:grayscale-0 group-hover/photo:contrast-100 group-hover/photo:brightness-100"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-[#070707] p-6 text-center">
+                      <ProjectIcon title={featuredProject.title} />
+                      <span className="font-tactical text-[9px] text-secondary tracking-widest uppercase mt-4">
+                        IMAGE RECON UNAVAILABLE
+                      </span>
+                    </div>
+                  )}
+                  {/* Watermark/stamp overlay */}
+                  <div className="absolute bottom-4 right-4 bg-red-raw/10 border border-red-raw px-2 py-0.5 select-none opacity-20 pointer-events-none">
+                    <span className="font-stamp text-[11px] text-red-bright tracking-widest uppercase rotate-[-12deg] inline-block">
+                      EVIDENCE ATTACHED
+                    </span>
+                  </div>
+                  <div className="absolute top-3 left-3 bg-[#080808]/90 border border-border-dim px-2.5 py-1 font-tactical text-[9px] tracking-widest text-[#8B9E6E] uppercase">
+                    CLASSIFIED ATTACHMENT
+                  </div>
                 </div>
-                {featuredProject.bullets ? (
-                  <div className="space-y-2 pt-1">
-                    <span className="font-tactical text-secondary block uppercase text-[11px] tracking-wider mb-2">[ REQUISITION REPORT / HIGHLIGHTS ]</span>
-                    <ul className="space-y-2 font-body text-xs sm:text-sm text-primary font-light pl-1">
-                      {featuredProject.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="text-red-raw font-bold mr-2 select-none">&#8250;</span>
-                          <span className="text-secondary leading-relaxed font-light">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div>
-                    <span className="font-tactical text-secondary mr-2 uppercase text-[11px] tracking-wider">[ TARGET ]</span>
-                    <span className="text-secondary font-light">{featuredProject.description}</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Tech Deployed */}
-              <div className="font-tactical text-[11px] text-[#8B9E6E] pt-2">
-                TECH DEPLOYED: {featuredProject.stack.join(" // ")}
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
-                {featuredProject.github && featuredProject.github !== "#" ? (
-                  <a
-                    href={featuredProject.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-center"
-                    id="featured-open-file-btn"
-                  >
-                    Open File
-                  </a>
-                ) : (
-                  <span className="font-tactical text-[11px] text-red-raw border border-red-raw/40 px-3 py-2 bg-red-stain/10 select-none cursor-not-allowed uppercase tracking-wider">
-                    [ SOURCE CLASSIFIED ]
-                  </span>
-                )}
-
-                {featuredProject.live && featuredProject.live !== "#" ? (
-                  <a
-                    href={featuredProject.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary group text-center"
-                    id="featured-field-report-btn"
-                  >
-                    Field Report <span className="arrow transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
-                  </a>
-                ) : (
-                  <span className="font-tactical text-[11px] text-secondary/50 border border-border-dim px-3 py-2 select-none cursor-not-allowed uppercase tracking-wider">
-                    [ OFFLINE / INTERNAL ]
-                  </span>
-                )}
               </div>
 
             </div>
@@ -209,30 +231,44 @@ export default function Projects() {
           {regularProjects.map((project) => (
             <div
               key={project.id}
-              className="mission-card relative bg-surface p-6 border border-border-dim dossier-card transition-all duration-300 hover:border-border-sharp overflow-hidden group"
+              className="mission-card relative bg-surface border border-border-dim dossier-card transition-all duration-300 hover:border-border-sharp overflow-hidden group flex flex-col justify-between"
             >
               {/* Dossier Corner bracket borders */}
               <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
 
-              {/* Card content */}
-              <div className="relative z-10 flex flex-col h-full justify-between space-y-4">
+              {/* Photo Attachment Container at the top */}
+              {project.logo ? (
+                <div className="relative w-full aspect-[16/10] border-b border-border-dim bg-void overflow-hidden">
+                  <img
+                    src={project.logo}
+                    alt={`${project.title} screenshot`}
+                    className="object-cover w-full h-full grayscale contrast-[1.15] brightness-[0.85] transition-all duration-500 group-hover:scale-103 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
+                  />
+                  <div className="absolute top-2 left-2 bg-[#080808]/85 border border-border-dim px-2 py-0.5 font-tactical text-[8px] tracking-widest text-[#8B9E6E] uppercase select-none">
+                    ATTACHMENT // VISUAL
+                  </div>
+                </div>
+              ) : (
+                /* Dynamic Technical Thematic Placeholder */
+                <div className="relative w-full aspect-[16/10] border-b border-border-dim bg-[#060606] overflow-hidden flex flex-col items-center justify-center p-4">
+                  {/* Subtle code terminal style grid background */}
+                  <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,18,18,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(18,18,18,0.7)_1px,transparent_1px)] bg-[size:10px_10px]" />
+                  <ProjectIcon title={project.title} className="opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
+                  <div className="font-tactical text-[8px] text-ghost tracking-widest uppercase mt-3 select-none">
+                    NO VISUAL RECORD
+                  </div>
+                </div>
+              )}
 
-                {/* Case & Status Header */}
+              {/* Card content */}
+              <div className="relative z-10 flex flex-col p-6 h-full justify-between space-y-4 flex-grow">
+
+                {/* Case Header */}
                 <div className="flex items-center justify-between">
                   <CaseNumber num={project.id.replace("CASE-", "")} />
-                  {project.logo ? (
-                    <div className="relative w-12 h-12 rounded-md overflow-hidden bg-void border border-border-dim p-1.5 flex items-center justify-center shrink-0">
-                      <img
-                        src={project.logo}
-                        alt={`${project.title} logo`}
-                        className="object-contain max-w-full max-h-full opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-12 h-12 rounded-md bg-void border border-border-dim flex items-center justify-center shrink-0">
-                      <ProjectIcon title={project.title} />
-                    </div>
-                  )}
+                  <span className="font-tactical text-[9px] text-ghost border border-border-dim px-1.5 py-0.2 select-none">
+                    {project.status}
+                  </span>
                 </div>
 
                 {/* Operation Title */}

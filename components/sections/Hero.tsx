@@ -153,10 +153,10 @@ export default function Hero() {
         <div className="md:col-span-5 flex flex-col items-center md:items-end justify-center relative mt-6 md:mt-0">
 
           {/* Profile Photo Wrapper */}
-          <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] border border-border-dim bg-surface group select-none">
+          <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-[4/5] bg-surface group select-none">
 
             {/* Dossier Corner bracket borders */}
-            <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
+            {/* <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" /> */}
 
             {/* Behind photo watermark */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03] overflow-hidden z-0">
@@ -173,7 +173,7 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/aaditya.jpeg"
+                src="/aaditya-filtered.png"
                 alt="Operative Aaditya Padte"
                 fill
                 sizes="(max-width: 768px) 100vw, 380px"

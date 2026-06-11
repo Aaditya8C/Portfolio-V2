@@ -25,10 +25,13 @@ export const techStack: TechStackCategory[] = [
     id: "BACKEND",
     category: "BACKEND",
     items: [
-      { name: "Node.js", rating: 9, label: "ADVANCED" },
-      { name: "Express", rating: 8, label: "ADVANCED" },
+      { name: "Spring Boot", rating: 9, label: "ADVANCED" },
+      { name: "Node.js", rating: 9, label: "PROFICIENT" },
+      { name: "Express", rating: 8, label: "PROFICIENT" },
       { name: "PostgreSQL", rating: 7, label: "PROFICIENT" },
       { name: "MongoDB", rating: 7, label: "PROFICIENT" },
+      { name: "Firebase", rating: 7, label: "PROFICIENT" },
+      
     ],
   },
   {

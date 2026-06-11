@@ -240,7 +240,7 @@ export default function About() {
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
                     data-value="2"
                   >
-                    0+
+                    1+
                   </span>
                   <span className="font-tactical text-[9px] sm:text-[10px] text-secondary tracking-widest uppercase mt-2">
                     YEARS
@@ -253,7 +253,7 @@ export default function About() {
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
                     data-value="5"
                   >
-                    0+
+                    2+
                   </span>
                   <span className="font-tactical text-[9px] sm:text-[10px] text-secondary tracking-widest uppercase mt-2">
                     ORGS
@@ -266,7 +266,7 @@ export default function About() {
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
                     data-value="10"
                   >
-                    0+
+                    8+
                   </span>
                   <span className="font-tactical text-[9px] sm:text-[10px] text-secondary tracking-widest uppercase mt-2">
                     PROJECTS

@@ -31,9 +31,9 @@ export const experience: ExperienceEntry[] = [
     location: "MUMBAI",
     status: "COMPLETED",
     bullets: [
-      "Developed high-throughput data pipelines using Python, reducing batch processing execution cycles by 35%.",
-      "Built diagnostic internal dashboard tools utilizing React and TypeScript for system telemetry auditing.",
-      "Collaborated with a cross-functional team of 8 software engineers to support production financial services infrastructure.",
+      "Built a micro-frontend UI from the ground up, integrating it into the broader system architecture and consolidating duplicate functionality that was previously scattered across multiple internal projects.",
+      "Designed and shipped a Spring Boot backend service, enabling seamless communication between the micro-frontend and existing internal APIs within a production-grade ecosystem.",
+      "Independently deployed the entire service to an AWS ECS cluster using a Jenkins CI/CD pipeline and Terraform for Infrastructure as Code (IaC)."
     ],
   },
   {
@@ -44,9 +44,10 @@ export const experience: ExperienceEntry[] = [
     location: "MUMBAI",
     status: "COMPLETED",
     bullets: [
-      "Built the core Learning Management System (LMS) codebase using Next.js and Node.js.",
-      "Integrated automated payment channels and user authentication frameworks.",
-      "Owned and deployed full-stack features, improving database retrieval latency by 20%.",
+      "Re-engineered the search front-end in Next.js for improved accuracy and consistent UI across the platform.",
+      "Rolled out multi-language support for 2+ languages, expanding platform accessibility to over 10,000 users.",
+      "Resolved 40% of live bugs within 72 hours in coordination with tech & testing teams.",
+      "Integrated a suite of medical calculators actively used by 2,000+ healthcare professionals on the platform."
     ],
   },
   {
