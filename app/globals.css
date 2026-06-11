@@ -1,0 +1,244 @@
+@import "tailwindcss";
+
+:root {
+  /* Backgrounds */
+  --bg-void:        #080808;   /* Primary page background — near pure black */
+  --bg-surface:     #0F0F0F;   /* Card/section surfaces */
+  --bg-elevated:    #141414;   /* Elevated elements, modals */
+  --bg-ruled:       #111111;   /* Striped rows, alternate surfaces */
+
+  /* Borders & Structure */
+  --border-dim:     #1E1E1E;   /* Subtle borders, dividers */
+  --border-mid:     #2A2A2A;   /* Card outlines, rule lines */
+  --border-sharp:   #3A3A3A;   /* Active/hover borders */
+
+  /* The Red — Blood Accent */
+  --red-raw:        #8B0000;   /* Deep arterial red — default accent */
+  --red-bright:     #C0392B;   /* Active/hover state red */
+  --red-ember:      #E74C3C;   /* Highlight, glow, critical labels */
+  --red-stain:      rgba(139,0,0,0.12);  /* Translucent red wash */
+
+  /* Text */
+  --text-primary:   #D4D4D4;   /* Main body text — not pure white */
+  --text-secondary: #7A7A7A;   /* Muted, subtext, metadata */
+  --text-ghost:     #3A3A3A;   /* Watermark, disabled */
+  --text-accent:    #C0392B;   /* Red text for labels, callouts */
+  --text-white:     #EFEFEF;   /* Headings, names */
+  --text-code:      #8B9E6E;   /* Olive/military green for code */
+
+  /* Special */
+  --redact-bar:     #0D0D0D;   /* Color of redaction bars */
+  --stamp-red:      rgba(192,57,43,0.18); /* Stamp overlay wash */
+  --noise-opacity:  0.025;     /* CSS noise texture opacity */
+  --scanline-gap:   3px;       /* Scanline stripe gap */
+}
+
+@theme {
+  --color-void: var(--bg-void);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-ruled: var(--bg-ruled);
+
+  --color-border-dim: var(--border-dim);
+  --color-border-mid: var(--border-mid);
+  --color-border-sharp: var(--border-sharp);
+
+  --color-red-raw: var(--red-raw);
+  --color-red-bright: var(--red-bright);
+  --color-red-ember: var(--red-ember);
+  --color-red-stain: var(--red-stain);
+
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-ghost: var(--text-ghost);
+  --color-accent: var(--text-accent);
+  --color-white: var(--text-white);
+  --color-code: var(--text-code);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-tactical: var(--font-tactical);
+  --font-stamp: var(--font-stamp);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: auto; /* Lenis handles scrolling */
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Keyboard outline */
+:focus-visible {
+  outline: 1px solid var(--red-bright);
+  outline-offset: 3px;
+}
+
+/* Custom Selection style */
+::selection {
+  background: var(--red-raw);
+  color: #fff;
+}
+
+/* Custom thin scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--red-raw);
+}
+
+/* Section baseline spacing */
+section {
+  padding: 80px 0;
+  position: relative;
+}
+
+/* Layout container wrapper */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* SIGNATURE ELEMENTS */
+
+/* Redaction Bars */
+.redact {
+  position: relative;
+  display: inline-block;
+}
+.redact::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--redact-bar);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.redact:hover::after {
+  transform: scaleX(0);
+}
+
+/* Dossier Corners */
+.dossier-card {
+  position: relative;
+  border: 1px solid var(--border-dim);
+}
+.dossier-card::before,
+.dossier-card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--red-raw);
+  border-style: solid;
+}
+.dossier-card::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.dossier-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Noise Texture Overlay */
+.noisy {
+  position: relative;
+}
+.noisy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scanlines overlay */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(var(--scanline-gap) - 1px),
+    rgba(0,0,0,0.08) var(--scanline-gap)
+  );
+}
+
+/* Tactical buttons styling */
+.btn-primary {
+  border: 1px solid var(--red-raw);
+  color: var(--red-bright);
+  background: transparent;
+  font-family: var(--font-tactical);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  padding: 10px 28px;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--red-raw);
+  color: #fff;
+}
+
+.btn-secondary {
+  color: var(--text-secondary);
+  font-family: var(--font-tactical);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.btn-secondary span.arrow {
+  transition: transform 0.2s ease;
+}
+.btn-secondary:hover span.arrow {
+  transform: translateX(4px);
+}
+
+/* HUD status light indicator */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red-bright);
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* Reduced Motion Settings */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
