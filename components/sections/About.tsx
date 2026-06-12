@@ -238,7 +238,7 @@ export default function About() {
                 <div className="flex flex-col items-center justify-center py-6 text-center">
                   <span
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
-                    data-value="2"
+                    data-value="1"
                   >
                     1+
                   </span>
@@ -251,7 +251,7 @@ export default function About() {
                 <div className="flex flex-col items-center justify-center py-6 text-center">
                   <span
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
-                    data-value="5"
+                    data-value="2"
                   >
                     2+
                   </span>
@@ -264,7 +264,7 @@ export default function About() {
                 <div className="flex flex-col items-center justify-center py-6 text-center">
                   <span
                     className="stat-number font-display text-5xl sm:text-6xl lg:text-7.5xl text-white font-bold leading-none"
-                    data-value="10"
+                    data-value="8"
                   >
                     8+
                   </span>

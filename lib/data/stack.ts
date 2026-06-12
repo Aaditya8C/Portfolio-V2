@@ -28,8 +28,8 @@ export const techStack: TechStackCategory[] = [
       { name: "Spring Boot", rating: 9, label: "ADVANCED" },
       { name: "Node.js", rating: 9, label: "PROFICIENT" },
       { name: "Express", rating: 8, label: "PROFICIENT" },
-      { name: "PostgreSQL", rating: 7, label: "PROFICIENT" },
-      { name: "MongoDB", rating: 7, label: "PROFICIENT" },
+      { name: "PostgreSQL", rating: 8, label: "PROFICIENT" },
+      { name: "MongoDB", rating: 8, label: "PROFICIENT" },
       { name: "Firebase", rating: 7, label: "PROFICIENT" },
       
     ],
@@ -38,8 +38,8 @@ export const techStack: TechStackCategory[] = [
     id: "DEVOPS",
     category: "DEVOPS",
     items: [
-      { name: "Docker", rating: 6, label: "PROFICIENT" },
-      { name: "AWS EC2", rating: 5, label: "WORKING KNOWLEDGE" },
+      { name: "Docker", rating: 7, label: "PROFICIENT" },
+      { name: "AWS EC2", rating: 6, label: "WORKING KNOWLEDGE" },
     ],
   },
   {
@@ -54,7 +54,7 @@ export const techStack: TechStackCategory[] = [
     id: "MOBILE",
     category: "MOBILE",
     items: [
-      { name: "React Native", rating: 8, label: "ADVANCED" },
+      { name: "React Native", rating: 7, label: "PROFICIENT" },
       { name: "Flutter", rating: 6, label: "PROFICIENT" },
     ],
   },

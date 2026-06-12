@@ -12,6 +12,7 @@ export default function Navbar() {
     { label: "MISSIONS", href: "#missions" },
     { label: "DEPLOYMENT", href: "#experience" },
     { label: "ARSENAL", href: "#arsenal" },
+    { label: "NETWORK", href: "#intel-network" },
     { label: "CONTACT", href: "#contact" },
   ];
 

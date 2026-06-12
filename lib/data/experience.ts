@@ -49,18 +49,18 @@ export const experience: ExperienceEntry[] = [
       "Resolved 40% of live bugs within 72 hours in coordination with tech & testing teams.",
       "Integrated a suite of medical calculators actively used by 2,000+ healthcare professionals on the platform."
     ],
-  },
-  {
-    id: "EXP-004",
-    org: "VJTI MUMBAI",
-    role: "B.Tech Computer Engineering",
-    period: "SEPT 2023 — MAY 2026",
-    location: "MUMBAI",
-    status: "COMPLETED",
-    bullets: [
-      "Final year undergraduate candidate in Computer Engineering.",
-      "Thesis: Multimodal Depression Detection using BiLSTM models and audio feature classification.",
-      "Engaged in advanced coursework covering Distributed Databases, Neural Networks, and Systems Engineering.",
-    ],
-  },
+  }
+  // {
+  //   id: "EXP-004",
+  //   org: "VJTI MUMBAI",
+  //   role: "B.Tech Computer Engineering",
+  //   period: "SEPT 2023 — MAY 2026",
+  //   location: "MUMBAI",
+  //   status: "COMPLETED",
+  //   bullets: [
+  //     "Final year undergraduate candidate in Computer Engineering.",
+  //     "Thesis: Multimodal Depression Detection using BiLSTM models and audio feature classification.",
+  //     "Engaged in advanced coursework covering Distributed Databases, Neural Networks, and Systems Engineering.",
+  //   ],
+  // },
 ];

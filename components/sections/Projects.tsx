@@ -181,7 +181,7 @@ export default function Projects() {
                       className="btn-secondary group text-center"
                       id="featured-field-report-btn"
                     >
-                      Field Report <span className="arrow transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                      Live Deployment <span className="arrow transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                     </a>
                   ) : (
                     <span className="font-tactical text-[11px] text-secondary/50 border border-border-dim px-3 py-2 select-none cursor-not-allowed uppercase tracking-wider">

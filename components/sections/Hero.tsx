@@ -193,6 +193,14 @@ export default function Hero() {
             >
               View Dossier
             </button>
+            <a
+              href="/Aaditya_Padte_Resume.pdf"
+              download="Aaditya_Padte_Resume.pdf"
+              className="btn-primary"
+              id="hero-download-resume-btn"
+            >
+              Download Resume
+            </a>
             <button
               onClick={handleScrollToContact}
               className="btn-secondary group"
