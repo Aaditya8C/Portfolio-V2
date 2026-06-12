@@ -73,7 +73,7 @@ export const projects: Project[] = [
     status: "COMPLETED",
     github: "https://github.com/Aaditya8C/Depression_Detection_Using_Fusion_Models",
     live: "",
-    logo:"/projects/image.png",
+    logo:"/projects/depression.png",
     featured: false,
   },
   {
