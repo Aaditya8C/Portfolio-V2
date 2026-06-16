@@ -156,7 +156,7 @@ export default function Contact() {
               /* Contact Form */
               <div
                 ref={formContainerRef}
-                className="border border-border-dim bg-surface p-8 dossier-card flex flex-col space-y-6 relative"
+                className="border border-border-dim bg-surface p-5 sm:p-8 dossier-card flex flex-col space-y-6 relative"
               >
                 {/* Dossier Corner brackets */}
                 <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
@@ -176,7 +176,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
                   {/* Field Name */}
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex flex-col space-y-2">
                     <label className="font-tactical text-[10px] text-secondary uppercase tracking-widest">
                       FIELD NAME *
                     </label>
@@ -185,7 +185,7 @@ export default function Contact() {
                       <input
                         type="text"
                         placeholder="ENTER CODENAME OR IDENTIFIER"
-                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-3 px-4 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
                         disabled={isSubmitting}
                         {...register("name")}
                       />
@@ -198,7 +198,7 @@ export default function Contact() {
                   </div>
 
                   {/* Secure Channel (Email) */}
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex flex-col space-y-2">
                     <label className="font-tactical text-[10px] text-secondary uppercase tracking-widest">
                       SECURE CHANNEL (EMAIL) *
                     </label>
@@ -207,7 +207,7 @@ export default function Contact() {
                       <input
                         type="text"
                         placeholder="ENTER AUDITED TRANSMISSION EMAIL"
-                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-3 px-4 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase"
                         disabled={isSubmitting}
                         {...register("email")}
                       />
@@ -220,7 +220,7 @@ export default function Contact() {
                   </div>
 
                   {/* Mission Objective (Message) */}
-                  <div className="flex flex-col space-y-1">
+                  <div className="flex flex-col space-y-2">
                     <label className="font-tactical text-[10px] text-secondary uppercase tracking-widest">
                       MISSION OBJECTIVE *
                     </label>
@@ -229,7 +229,7 @@ export default function Contact() {
                       <textarea
                         placeholder="DEFINE TARGET INSTRUCTIONS, TIMELINES AND DELIVERABLES..."
                         rows={4}
-                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-2.5 px-3 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase resize-none"
+                        className="bg-transparent border border-border-mid hover:border-border-sharp focus:border-red-bright rounded-none text-primary font-tactical text-[13px] py-3 px-4 w-full outline-none transition-all duration-200 placeholder-ghost/50 uppercase resize-none"
                         disabled={isSubmitting}
                         {...register("message")}
                       />

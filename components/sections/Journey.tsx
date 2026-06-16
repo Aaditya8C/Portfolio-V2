@@ -154,7 +154,7 @@ export default function Journey() {
           {journeyMilestones.map((milestone) => (
             <div
               key={milestone.id}
-              className="w-full border border-border-dim border-l-2 border-l-red-raw bg-surface p-6 dossier-card relative flex flex-col justify-between min-h-[280px] overflow-hidden"
+              className="w-full border border-border-dim border-l-2 border-l-red-raw bg-surface p-5 sm:p-6 dossier-card relative flex flex-col justify-between overflow-hidden"
             >
               {/* Dossier corner bracket overlay */}
               <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />

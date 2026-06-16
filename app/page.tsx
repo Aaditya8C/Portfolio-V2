@@ -28,7 +28,7 @@ export default function Home() {
       <Hero />
 
       {/* Placeholder verification sections to test scroll intersection */}
-      <main className="container flex-grow flex flex-col">
+      <main className="flex-grow flex flex-col">
         
         {/* About Section */}
         <About />

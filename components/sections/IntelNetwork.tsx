@@ -99,7 +99,7 @@ export default function IntelNetwork() {
         </div>
 
         {/* Grid Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 w-full mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 w-full mt-6">
 
           {/* Left Column: Public Channels */}
           <div className="lg:col-span-6 flex flex-col space-y-6 channels-column">
@@ -112,7 +112,7 @@ export default function IntelNetwork() {
             {publicChannels.map((channel) => (
               <div
                 key={channel.id}
-                className="channel-card border border-border-dim bg-surface p-6 dossier-card transition-all duration-300 hover:border-border-sharp hover:bg-elevated relative group cursor-pointer"
+                className="channel-card border border-border-dim bg-surface p-5 sm:p-6 dossier-card transition-all duration-300 hover:border-border-sharp hover:bg-elevated relative group cursor-pointer"
                 onClick={() => channel.link && window.open(channel.link, "_blank", "noopener,noreferrer")}
               >
                 {/* Dossier Corner bracket borders */}
@@ -171,7 +171,7 @@ export default function IntelNetwork() {
             {communityOperations.map((op) => (
               <div
                 key={op.id}
-                className="op-card border border-border-dim bg-surface p-6 dossier-card transition-all duration-300 hover:border-border-sharp hover:bg-elevated relative group"
+                className="op-card border border-border-dim bg-surface p-5 sm:p-6 dossier-card transition-all duration-300 hover:border-border-sharp hover:bg-elevated relative group"
               >
                 {/* Dossier Corner bracket borders */}
                 <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />

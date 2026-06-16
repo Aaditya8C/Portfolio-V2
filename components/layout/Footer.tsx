@@ -12,7 +12,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-transparent py-8 border-t border-border-dim font-tactical text-[11px] text-ghost select-none">
-      <div className="max-w-[1200px] mx-auto px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
           AP // AADITYA PADTE // MUMBAI // 2025
         </div>

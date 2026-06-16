@@ -83,7 +83,7 @@ export default function Projects() {
 
         {/* Featured Mission Card */}
         <div className="mission-card w-full mt-4">
-          <div className="relative border-l-3 border-l-red-raw border-y border-r border-border-dim bg-surface p-8 dossier-card transition-all duration-300 hover:border-l-red-bright hover:bg-elevated overflow-hidden group">
+          <div className="relative border-l-3 border-l-red-raw border-y border-r border-border-dim bg-surface p-6 sm:p-8 dossier-card transition-all duration-300 hover:border-l-red-bright hover:bg-elevated overflow-hidden group">
 
             {/* Dossier Corner bracket borders */}
             <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />
@@ -99,7 +99,7 @@ export default function Projects() {
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
               {/* Left Column: Info */}
-              <div className="lg:col-span-7 flex flex-col space-y-4">
+              <div className="lg:col-span-7 flex flex-col space-y-4 order-2 lg:order-1">
 
                 {/* Header Info Strip */}
                 <div className="flex items-center justify-between">
@@ -116,7 +116,7 @@ export default function Projects() {
                       OPERATION: {featuredProject.title.split("–")[0].split("-")[0].trim()}
                     </h3>
                     {featuredProject.period && (
-                      <span className="font-tactical text-[10px] text-secondary tracking-widest uppercase shrink-0 bg-void border border-border-dim px-2 py-0.5">
+                      <span className="font-tactical text-[10px] text-secondary tracking-widest uppercase shrink-0 bg-void border border-border-dim px-2 py-0.5 w-fit">
                         {featuredProject.role} // {featuredProject.period}
                       </span>
                     )}
@@ -193,13 +193,13 @@ export default function Projects() {
               </div>
 
               {/* Right Column: Screenshot Visual Attachment */}
-              <div className="lg:col-span-5 flex flex-col justify-center items-center w-full">
+              <div className="lg:col-span-5 flex flex-col justify-center items-center w-full order-1 lg:order-2">
                 <div className="relative w-full aspect-[16/10] border border-border-dim bg-void overflow-hidden shadow-2xl group/photo select-none">
                   {featuredProject.logo ? (
                     <img
-                      src={featuredProject.logo}
+                       src={featuredProject.logo}
                       alt={`${featuredProject.title} preview`}
-                      className="object-cover w-full h-full grayscale contrast-[1.15] brightness-[0.85] transition-all duration-500 group-hover/photo:scale-103 group-hover/photo:grayscale-0 group-hover/photo:contrast-100 group-hover/photo:brightness-100"
+                      className="object-cover w-full h-full md:grayscale md:contrast-[1.15] md:brightness-[0.85] transition-all duration-500 group-hover/photo:scale-103 group-hover/photo:grayscale-0 group-hover/photo:contrast-100 group-hover/photo:brightness-100"
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center bg-[#070707] p-6 text-center">
@@ -210,12 +210,12 @@ export default function Projects() {
                     </div>
                   )}
                   {/* Watermark/stamp overlay */}
-                  <div className="absolute bottom-4 right-4 bg-red-raw/10 border border-red-raw px-2 py-0.5 select-none opacity-20 pointer-events-none">
+                  <div className="absolute bottom-4 right-4 bg-red-raw/10 border border-red-raw px-2 py-0.5 select-none opacity-20 pointer-events-none hidden md:block">
                     <span className="font-stamp text-[11px] text-red-bright tracking-widest uppercase rotate-[-12deg] inline-block">
                       EVIDENCE ATTACHED
                     </span>
                   </div>
-                  <div className="absolute top-3 left-3 bg-[#080808]/90 border border-border-dim px-2.5 py-1 font-tactical text-[9px] tracking-widest text-[#8B9E6E] uppercase">
+                  <div className="absolute top-3 left-3 bg-[#080808]/90 border border-border-dim px-2.5 py-1 font-tactical text-[9px] tracking-widest text-[#8B9E6E] uppercase hidden md:block">
                     CLASSIFIED ATTACHMENT
                   </div>
                 </div>
@@ -227,7 +227,7 @@ export default function Projects() {
         </div>
 
         {/* Regular Missions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 md:mt-8 w-full">
           {regularProjects.map((project) => (
             <div
               key={project.id}
@@ -242,9 +242,9 @@ export default function Projects() {
                   <img
                     src={project.logo}
                     alt={`${project.title} screenshot`}
-                    className="object-cover w-full h-full grayscale contrast-[1.15] brightness-[0.85] transition-all duration-500 group-hover:scale-103 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
+                    className="object-cover w-full h-full md:grayscale md:contrast-[1.15] md:brightness-[0.85] transition-all duration-500 group-hover:scale-103 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
                   />
-                  <div className="absolute top-2 left-2 bg-[#080808]/85 border border-border-dim px-2 py-0.5 font-tactical text-[8px] tracking-widest text-[#8B9E6E] uppercase select-none">
+                  <div className="absolute top-2 left-2 bg-[#080808]/85 border border-border-dim px-2 py-0.5 font-tactical text-[8px] tracking-widest text-[#8B9E6E] uppercase select-none hidden md:block">
                     ATTACHMENT // VISUAL
                   </div>
                 </div>

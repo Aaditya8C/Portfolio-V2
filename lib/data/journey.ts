@@ -12,9 +12,9 @@ export const journeyMilestones: JourneyMilestone[] = [
     id: "REPORT-001",
     date: "AUG 2021",
     title: "FIRST CONTACT WITH CODE",
-    description: "Enrolled in VJTI Computer Engineering. First encounter with C programming, basic Data Structures, and the command line terminal.",
+    description: "Enrolled in Govenrment Polytechnic Mumbai. First encounter with C programming, basic Data Structures, and the command line terminal.",
     outcome: "OBJECTIVE ACHIEVED",
-    year: "2021",
+    year: "2020",
   },
   {
     id: "REPORT-002",
@@ -46,7 +46,7 @@ export const journeyMilestones: JourneyMilestone[] = [
     title: "JPMORGAN CHASE INTERNSHIP",
     description: "Secured SWE Intern role. Developed internal system dashboards, optimized batch data pipelines, and operated across complex enterprise stacks.",
     outcome: "OBJECTIVE ACHIEVED",
-    year: "2024",
+    year: "2025",
   },
   {
     id: "REPORT-006",

@@ -52,7 +52,7 @@ export const projects: Project[] = [
     ],
     status: "COMPLETED",
     github: "https://github.com/Aaditya8C/DevTrace",
-    live: "devx-devtrace.vercel.app",
+    live: "https://devx-devtrace.vercel.app/",
     logo: "/projects/devtrace.png",
     featured: false,
   },
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     status: "COMPLETED",
     github: "https://github.com/Aaditya8C/Depression_Detection_Using_Fusion_Models",
     live: "",
-    logo:"/projects/depression.png",
+    logo: "/projects/depression.png",
     featured: false,
   },
   {

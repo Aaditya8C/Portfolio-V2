@@ -2,35 +2,56 @@
 
 :root {
   /* Backgrounds */
-  --bg-void:        #080808;   /* Primary page background — near pure black */
-  --bg-surface:     #0F0F0F;   /* Card/section surfaces */
-  --bg-elevated:    #141414;   /* Elevated elements, modals */
-  --bg-ruled:       #111111;   /* Striped rows, alternate surfaces */
+  --bg-void: #080808;
+  /* Primary page background — near pure black */
+  --bg-surface: #0F0F0F;
+  /* Card/section surfaces */
+  --bg-elevated: #141414;
+  /* Elevated elements, modals */
+  --bg-ruled: #111111;
+  /* Striped rows, alternate surfaces */
 
   /* Borders & Structure */
-  --border-dim:     #1E1E1E;   /* Subtle borders, dividers */
-  --border-mid:     #2A2A2A;   /* Card outlines, rule lines */
-  --border-sharp:   #3A3A3A;   /* Active/hover borders */
+  --border-dim: #1E1E1E;
+  /* Subtle borders, dividers */
+  --border-mid: #2A2A2A;
+  /* Card outlines, rule lines */
+  --border-sharp: #3A3A3A;
+  /* Active/hover borders */
 
   /* The Red — Blood Accent */
-  --red-raw:        #8B0000;   /* Deep arterial red — default accent */
-  --red-bright:     #C0392B;   /* Active/hover state red */
-  --red-ember:      #E74C3C;   /* Highlight, glow, critical labels */
-  --red-stain:      rgba(139,0,0,0.12);  /* Translucent red wash */
+  --red-raw: #8B0000;
+  /* Deep arterial red — default accent */
+  --red-bright: #C0392B;
+  /* Active/hover state red */
+  --red-ember: #E74C3C;
+  /* Highlight, glow, critical labels */
+  --red-stain: rgba(139, 0, 0, 0.12);
+  /* Translucent red wash */
 
   /* Text */
-  --text-primary:   #D4D4D4;   /* Main body text — not pure white */
-  --text-secondary: #7A7A7A;   /* Muted, subtext, metadata */
-  --text-ghost:     #3A3A3A;   /* Watermark, disabled */
-  --text-accent:    #C0392B;   /* Red text for labels, callouts */
-  --text-white:     #EFEFEF;   /* Headings, names */
-  --text-code:      #8B9E6E;   /* Olive/military green for code */
+  --text-primary: #D4D4D4;
+  /* Main body text — not pure white */
+  --text-secondary: #7A7A7A;
+  /* Muted, subtext, metadata */
+  --text-ghost: #3A3A3A;
+  /* Watermark, disabled */
+  --text-accent: #C0392B;
+  /* Red text for labels, callouts */
+  --text-white: #EFEFEF;
+  /* Headings, names */
+  --text-code: #8B9E6E;
+  /* Olive/military green for code */
 
   /* Special */
-  --redact-bar:     #0D0D0D;   /* Color of redaction bars */
-  --stamp-red:      rgba(192,57,43,0.18); /* Stamp overlay wash */
-  --noise-opacity:  0.025;     /* CSS noise texture opacity */
-  --scanline-gap:   3px;       /* Scanline stripe gap */
+  --redact-bar: #0D0D0D;
+  /* Color of redaction bars */
+  --stamp-red: rgba(192, 57, 43, 0.18);
+  /* Stamp overlay wash */
+  --noise-opacity: 0.025;
+  /* CSS noise texture opacity */
+  --scanline-gap: 3px;
+  /* Scanline stripe gap */
 }
 
 @theme {
@@ -61,10 +82,15 @@
   --font-stamp: var(--font-stamp);
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
-  scroll-behavior: auto; /* Lenis handles scrolling */
+  scroll-behavior: auto;
+  /* Lenis handles scrolling */
 }
 
 body {
@@ -93,9 +119,11 @@ body {
 ::-webkit-scrollbar {
   width: 3px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-void);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--red-raw);
 }
@@ -110,7 +138,13 @@ section {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
 }
 
 /* SIGNATURE ELEMENTS */
@@ -120,6 +154,7 @@ section {
   position: relative;
   display: inline-block;
 }
+
 .redact::after {
   content: '';
   position: absolute;
@@ -128,6 +163,7 @@ section {
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(0.77, 0, 0.18, 1);
 }
+
 .redact:hover::after {
   transform: scaleX(0);
 }
@@ -137,6 +173,7 @@ section {
   position: relative;
   border: 1px solid var(--border-dim);
 }
+
 .dossier-card::before,
 .dossier-card::after {
   content: '';
@@ -146,11 +183,13 @@ section {
   border-color: var(--red-raw);
   border-style: solid;
 }
+
 .dossier-card::before {
   top: -1px;
   left: -1px;
   border-width: 2px 0 0 2px;
 }
+
 .dossier-card::after {
   bottom: -1px;
   right: -1px;
@@ -161,6 +200,7 @@ section {
 .noisy {
   position: relative;
 }
+
 .noisy::before {
   content: '';
   position: absolute;
@@ -173,12 +213,10 @@ section {
 
 /* Scanlines overlay */
 .scanlines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent calc(var(--scanline-gap) - 1px),
-    rgba(0,0,0,0.08) var(--scanline-gap)
-  );
+  background-image: repeating-linear-gradient(to bottom,
+      transparent,
+      transparent calc(var(--scanline-gap) - 1px),
+      rgba(0, 0, 0, 0.08) var(--scanline-gap));
 }
 
 /* Tactical buttons styling */
@@ -194,6 +232,7 @@ section {
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
 }
+
 .btn-primary:hover {
   background: var(--red-raw);
   color: #fff;
@@ -213,18 +252,28 @@ section {
   gap: 8px;
   cursor: pointer;
 }
+
 .btn-secondary span.arrow {
   transition: transform 0.2s ease;
 }
+
 .btn-secondary:hover span.arrow {
   transform: translateX(4px);
 }
 
 /* HUD status light indicator */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
+
 .status-dot {
   width: 6px;
   height: 6px;
@@ -241,4 +290,3 @@ section {
     transition-duration: 0.01ms !important;
   }
 }
-

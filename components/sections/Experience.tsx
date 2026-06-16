@@ -121,10 +121,10 @@ export default function Experience() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
 
           {/* Left Column: Timeline */}
-          <div className="lg:col-span-8 relative pl-12 md:pl-20 w-full mt-6 space-y-16 md:space-y-20">
+          <div className="lg:col-span-8 relative pl-6 sm:pl-12 md:pl-20 w-full mt-6 space-y-12 md:space-y-20">
 
             {/* Ruled double red line representing notepad/file margins */}
-            <div className="absolute left-[16px] md:left-[36px] top-0 bottom-0 w-[4px] border-l border-r border-red-raw opacity-40 timeline-line" />
+            <div className="absolute left-[8px] md:left-[36px] top-0 bottom-0 w-[4px] border-l border-r border-red-raw opacity-40 timeline-line" />
 
             {/* Entries Loop */}
             {experience.map((entry) => (
@@ -134,12 +134,12 @@ export default function Experience() {
               >
 
                 {/* Timeline Status Node Point */}
-                <div className="absolute left-[-35px] md:left-[-47px] top-[35px] w-2.5 h-2.5 bg-red-bright rounded-full border border-void transform -translate-y-1/2 z-10 flex items-center justify-center">
+                <div className="absolute left-[-19px] md:left-[-47px] top-[35px] w-2.5 h-2.5 bg-red-bright rounded-full border border-void transform -translate-y-1/2 z-10 flex items-center justify-center">
                   <span className="w-1 h-1 bg-white rounded-full animate-ping opacity-75" />
                 </div>
 
                 {/* Dossier Card Container */}
-                <div className="border border-border-dim bg-surface p-6 md:p-8 dossier-card flex flex-col space-y-4 group hover:border-border-sharp transition-colors duration-300 relative">
+                <div className="border border-border-dim bg-surface p-5 md:p-8 dossier-card flex flex-col space-y-4 group hover:border-border-sharp transition-colors duration-300 relative">
 
                   {/* Dossier Bracket Corners */}
                   <div className="absolute inset-0 dossier-card pointer-events-none border-none z-20" />

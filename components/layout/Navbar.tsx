@@ -66,7 +66,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-50 bg-transparent font-tactical text-[12px] pointer-events-auto">
-        <div className="max-w-[1200px] mx-auto px-10 h-20 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#"
