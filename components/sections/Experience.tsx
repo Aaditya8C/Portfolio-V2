@@ -82,7 +82,7 @@ export default function Experience() {
         );
       case "ONGOING":
         return (
-          <span className="font-tactical text-[9px] text-white border border-border-sharp px-2 py-0.5 bg-[#141414] select-none uppercase tracking-wider">
+          <span className="font-tactical text-[9px] text-white border border-border-sharp px-2 py-0.5 bg-elevated select-none uppercase tracking-wider">
             &#9664; ONGOING &#9654;
           </span>
         );

@@ -245,11 +245,11 @@ export default function Hero() {
               />
 
               {/* Crimson tint mix-multiply hover overlay */}
-              <div className="absolute inset-0 bg-[#8B0000] opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-red-raw opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-multiply" />
             </div>
 
             {/* Floating label overlay */}
-            <div className="absolute bottom-4 left-4 bg-[#080808]/85 border border-border-dim px-3 py-1 font-tactical text-[9px] tracking-widest text-red-bright uppercase z-20">
+            <div className="absolute bottom-4 left-4 bg-void/85 border border-border-dim px-3 py-1 font-tactical text-[9px] tracking-widest text-red-bright uppercase z-20">
               OPERATIVE // ACTIVE
             </div>
 

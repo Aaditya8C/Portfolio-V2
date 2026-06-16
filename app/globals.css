@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+:root, :root[data-theme="dark"] {
   /* Backgrounds */
   --bg-void: #080808;
   /* Primary page background — near pure black */
@@ -54,6 +54,59 @@
   /* Scanline stripe gap */
 }
 
+:root[data-theme="light"] {
+  /* Backgrounds */
+  --bg-void: #F3F0E8;
+  /* Manila folder page background */
+  --bg-surface: #ECE7DC;
+  /* Card/section surfaces */
+  --bg-elevated: #E2DDD2;
+  /* Elevated folder tags/tabs */
+  --bg-ruled: #E8E3D8;
+  /* Alternate log sheet rows */
+
+  /* Borders & Structure */
+  --border-dim: #D2CBC0;
+  /* Muted grid folder borders */
+  --border-mid: #BEB6A9;
+  /* Dossier card borders */
+  --border-sharp: #9D9385;
+  /* Focus/active borders */
+
+  /* The Red — Stamp Ink Accent */
+  --red-raw: #8B0000;
+  /* Retained blood red */
+  --red-bright: #B03A2E;
+  /* Ink red for links */
+  --red-ember: #C0392B;
+  /* Highlight glow/critical red */
+  --red-stain: rgba(139, 0, 0, 0.06);
+  /* Muted red paper wash */
+
+  /* Text */
+  --text-primary: #1A1A1A;
+  /* Typewriter ink black */
+  --text-secondary: #5A544B;
+  /* Muted graphite carbon copy text */
+  --text-ghost: #B0A89A;
+  /* Soft index marks/redacted stamps */
+  --text-accent: #B03A2E;
+  /* Deep red tactical callouts */
+  --text-white: #111111;
+  /* Headers, bold classifications */
+  --text-code: #5B6F4E;
+  /* Darker olive contrast for typewriter log code */
+
+  /* Special */
+  --redact-bar: #1A1A1A;
+  /* Sharp black marker redaction bar */
+  --stamp-red: rgba(192, 57, 43, 0.15);
+  /* Archive stamp ink */
+  --noise-opacity: 0.045;
+  /* Increased texture to mimic heavy fiber paper */
+  --scanline-gap: 3px;
+}
+
 @theme {
   --color-void: var(--bg-void);
   --color-surface: var(--bg-surface);
@@ -86,6 +139,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+body, section, .dossier-card, input, textarea, button, h1, h2, h3, h4, p, span, a, hr, .timeline-line, .status-dot, .scanlines {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
 }
 
 html {

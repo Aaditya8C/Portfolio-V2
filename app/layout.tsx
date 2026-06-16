@@ -40,9 +40,26 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${bebasNeue.variable} ${inter.variable} ${spaceMono.variable} ${oswald.variable} h-full antialiased`}
     >
-      <body className="bg-[#080808] text-[#D4D4D4] font-body min-h-full flex flex-col selection:bg-[#8B0000] selection:text-white overflow-x-hidden">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  var activeTheme = theme || systemTheme;
+                  document.documentElement.setAttribute('data-theme', activeTheme);
+                } catch (e) {}
+              })()
+            `,
+          }}
+        />
+      </head>
+      <body className="bg-void text-primary font-body min-h-full flex flex-col selection:bg-red-raw selection:text-white overflow-x-hidden">
         <SmoothScroll>
           {children}
         </SmoothScroll>

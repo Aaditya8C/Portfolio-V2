@@ -6,6 +6,23 @@ import clsx from "clsx";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = document.documentElement.getAttribute("data-theme") as "dark" | "light";
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
+  };
 
   const links = [
     { label: "INTEL", href: "#intel" },
@@ -101,10 +118,23 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* HUD Status Dot */}
-          <div className="hidden md:flex items-center space-x-2 text-white font-tactical select-none">
-            <span>STATUS: ACTIVE</span>
-            <span className="status-dot" />
+          {/* Theme switcher and Status dot */}
+          <div className="hidden md:flex items-center space-x-6 select-none font-tactical">
+            {mounted ? (
+              <button
+                onClick={toggleTheme}
+                className="font-tactical text-[11px] text-secondary hover:text-red-bright transition-colors uppercase tracking-widest cursor-pointer border border-border-dim px-2.5 py-1 bg-surface h-[28px]"
+                aria-label="Toggle theme"
+              >
+                ◐ {theme === "dark" ? "DARK" : "LIGHT"}
+              </button>
+            ) : (
+              <div className="w-[70px] h-[28px] bg-surface/50 border border-border-dim/50 animate-pulse" />
+            )}
+            <div className="flex items-center space-x-2 text-primary">
+              <span>STATUS: ACTIVE</span>
+              <span className="status-dot" />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -116,14 +146,14 @@ export default function Navbar() {
           >
             <span
               className={clsx(
-                "w-6 h-[1px] bg-white transition-transform duration-300",
+                "w-6 h-[1px] bg-primary transition-transform duration-300",
                 isOpen && "transform translate-y-2 rotate-45"
               )}
             />
-            <span className={clsx("w-4 h-[1px] bg-white transition-opacity duration-300", isOpen && "opacity-0")} />
+            <span className={clsx("w-4 h-[1px] bg-primary transition-opacity duration-300", isOpen && "opacity-0")} />
             <span
               className={clsx(
-                "w-6 h-[1px] bg-white transition-transform duration-300",
+                "w-6 h-[1px] bg-primary transition-transform duration-300",
                 isOpen && "transform -translate-y-2.5 -rotate-45"
               )}
             />
@@ -155,9 +185,21 @@ export default function Navbar() {
               </a>
             );
           })}
-          <div className="pt-8 border-t border-border-mid flex items-center space-x-3 text-secondary font-tactical text-sm">
-            <span>STATUS: ACTIVE</span>
-            <span className="status-dot" />
+          <div className="pt-8 border-t border-border-mid flex flex-col space-y-4">
+            {mounted ? (
+              <button
+                onClick={toggleTheme}
+                className="font-tactical text-[12px] text-secondary hover:text-red-bright transition-colors uppercase tracking-widest text-left cursor-pointer"
+              >
+                ◐ THEME // {theme === "dark" ? "DARK" : "LIGHT"}
+              </button>
+            ) : (
+              <div className="w-[120px] h-[18px] bg-surface/50 border border-border-dim/50 animate-pulse" />
+            )}
+            <div className="flex items-center space-x-3 text-secondary font-tactical text-sm select-none">
+              <span>STATUS: ACTIVE</span>
+              <span className="status-dot" />
+            </div>
           </div>
         </div>
       </div>

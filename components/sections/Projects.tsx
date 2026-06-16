@@ -151,7 +151,7 @@ export default function Projects() {
                 </div>
 
                 {/* Tech Deployed */}
-                <div className="font-tactical text-[11px] text-[#8B9E6E] pt-2">
+                <div className="font-tactical text-[11px] text-code pt-2">
                   TECH DEPLOYED: {featuredProject.stack.join(" // ")}
                 </div>
 
@@ -202,7 +202,7 @@ export default function Projects() {
                       className="object-cover w-full h-full md:grayscale md:contrast-[1.15] md:brightness-[0.85] transition-all duration-500 group-hover/photo:scale-103 group-hover/photo:grayscale-0 group-hover/photo:contrast-100 group-hover/photo:brightness-100"
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-[#070707] p-6 text-center">
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-void p-6 text-center">
                       <ProjectIcon title={featuredProject.title} />
                       <span className="font-tactical text-[9px] text-secondary tracking-widest uppercase mt-4">
                         IMAGE RECON UNAVAILABLE
@@ -215,7 +215,7 @@ export default function Projects() {
                       EVIDENCE ATTACHED
                     </span>
                   </div>
-                  <div className="absolute top-3 left-3 bg-[#080808]/90 border border-border-dim px-2.5 py-1 font-tactical text-[9px] tracking-widest text-[#8B9E6E] uppercase hidden md:block">
+                  <div className="absolute top-3 left-3 bg-void/90 border border-border-dim px-2.5 py-1 font-tactical text-[9px] tracking-widest text-code uppercase hidden md:block">
                     CLASSIFIED ATTACHMENT
                   </div>
                 </div>
@@ -244,13 +244,13 @@ export default function Projects() {
                     alt={`${project.title} screenshot`}
                     className="object-cover w-full h-full md:grayscale md:contrast-[1.15] md:brightness-[0.85] transition-all duration-500 group-hover:scale-103 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
                   />
-                  <div className="absolute top-2 left-2 bg-[#080808]/85 border border-border-dim px-2 py-0.5 font-tactical text-[8px] tracking-widest text-[#8B9E6E] uppercase select-none hidden md:block">
+                  <div className="absolute top-2 left-2 bg-void/85 border border-border-dim px-2 py-0.5 font-tactical text-[8px] tracking-widest text-code uppercase select-none hidden md:block">
                     ATTACHMENT // VISUAL
                   </div>
                 </div>
               ) : (
                 /* Dynamic Technical Thematic Placeholder */
-                <div className="relative w-full aspect-[16/10] border-b border-border-dim bg-[#060606] overflow-hidden flex flex-col items-center justify-center p-4">
+                <div className="relative w-full aspect-[16/10] border-b border-border-dim bg-void overflow-hidden flex flex-col items-center justify-center p-4">
                   {/* Subtle code terminal style grid background */}
                   <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,18,18,0.7)_1px,transparent_1px),linear-gradient(90deg,rgba(18,18,18,0.7)_1px,transparent_1px)] bg-[size:10px_10px]" />
                   <ProjectIcon title={project.title} className="opacity-40 group-hover:opacity-80 transition-opacity duration-300" />
@@ -285,7 +285,7 @@ export default function Projects() {
                 </p>
 
                 {/* Tags Strip */}
-                <div className="font-tactical text-[10px] text-[#8B9E6E] tracking-wide pt-2 ">
+                <div className="font-tactical text-[10px] text-code tracking-wide pt-2 ">
                   {project.stack.join(" // ")}
                 </div>
 

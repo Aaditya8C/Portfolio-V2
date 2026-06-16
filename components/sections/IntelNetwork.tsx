@@ -131,7 +131,7 @@ export default function IntelNetwork() {
                     <h3 className="font-display text-2xl text-white tracking-wide uppercase group-hover:text-red-bright transition-colors duration-200">
                       {channel.name}
                     </h3>
-                    <span className="font-tactical text-[9px] text-[#8B9E6E] tracking-wider block mt-0.5">
+                    <span className="font-tactical text-[9px] text-code tracking-wider block mt-0.5">
                       {channel.purpose}
                     </span>
                   </div>
@@ -203,7 +203,7 @@ export default function IntelNetwork() {
                       {op.results.map((result, index) => (
                         <span
                           key={index}
-                          className="bg-[#101010] border border-border-dim text-[#8B9E6E] text-[10px] px-2.5 py-1 font-mono tracking-wider"
+                          className="bg-void border border-border-dim text-code text-[10px] px-2.5 py-1 font-mono tracking-wider"
                         >
                           &#8250; {result}
                         </span>
