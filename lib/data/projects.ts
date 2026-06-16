@@ -9,6 +9,7 @@ export interface Project {
   live: string;
   featured: boolean;
   logo?: string;
+  images?: string[];
   bullets?: string[];
   role?: string;
   period?: string;
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     github: "https://github.com/COD-23/StudyNex---Frontend",
     live: "https://study-nex.vercel.app/",
     logo: "/projects/study.png",
+    images: ["/projects/studynex/s1.png", "/projects/studynex/s2.png", "/projects/studynex/s3.png", "/projects/studynex/s4.png", "/projects/studynex/s5.png", "/projects/studynex/s6.png"],
     featured: true,
   },
   {
@@ -54,6 +56,7 @@ export const projects: Project[] = [
     github: "https://github.com/Aaditya8C/DevTrace",
     live: "https://devx-devtrace.vercel.app/",
     logo: "/projects/devtrace.png",
+    images: ["/projects/devtrace/d1.png", "/projects/devtrace/d2.png", "/projects/devtrace/d3.png", "/projects/devtrace/d4.png", "/projects/devtrace/d5.png"],
     featured: false,
   },
   {
@@ -74,6 +77,7 @@ export const projects: Project[] = [
     github: "https://github.com/Aaditya8C/Depression_Detection_Using_Fusion_Models",
     live: "",
     logo: "/projects/depression.png",
+    images: ["/projects/depression/d1.png", "/projects/depression/d2.png"],
     featured: false,
   },
   {
@@ -94,6 +98,7 @@ export const projects: Project[] = [
     github: "https://github.com/Aaditya8C/GDrive-Dapp-Client",
     live: "https://gdrive-dapp.vercel.app/",
     logo: "/projects/gdrive.png",
+    images: ["/projects/dsync/d1.png", "/projects/dsync/d2.png", "/projects/dsync/d3.png", "/projects/dsync/d4.png",],
     featured: false,
   },
   {
@@ -106,6 +111,7 @@ export const projects: Project[] = [
     github: "https://github.com/Aaditya8C/CP-CLUB-Website",
     live: "https://cp-club-vjti.vercel.app/",
     logo: "/projects/cp-club.png",
+    images: ["/projects/cp-club/c1.png", "/projects/cp-club/c2.png", "/projects/cp-club/c3.png", "/projects/cp-club/c4.png"],
     featured: false,
   },
   {
@@ -118,6 +124,7 @@ export const projects: Project[] = [
     github: "https://github.com/Aaditya8C/COC_NFT_Auction",
     live: "https://eth-nft-auction.vercel.app/",
     logo: "/projects/nft-auction.png",
+    images: ["/projects/nft-auction.png"],
     featured: false,
   },
 ];

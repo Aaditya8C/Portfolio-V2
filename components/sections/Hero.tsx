@@ -12,6 +12,32 @@ export default function Hero() {
   const [showCursor, setShowCursor] = useState(true);
   const [isTypewriterDone, setIsTypewriterDone] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const currentTheme = document.documentElement.getAttribute("data-theme") as "dark" | "light";
+    if (currentTheme) {
+      setTheme(currentTheme);
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "data-theme") {
+          const newTheme = document.documentElement.getAttribute("data-theme") as "dark" | "light";
+          if (newTheme) {
+            setTheme(newTheme);
+          }
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const fullName = "AADITYA PADTE";
@@ -236,11 +262,11 @@ export default function Hero() {
               }}
             >
               <Image
-                src="/aadi.png"
+                src={theme === "light" ? "/aaditya.jpeg" : "/aadi.png"}
                 alt="Operative Aaditya Padte"
                 fill
                 sizes="(max-width: 768px) 100vw, 380px"
-                className="object-cover grayscale contrast-[1.2] brightness-[0.88] transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"
+                className={`object-cover transition-all duration-500 ${theme === "dark" ? "grayscale contrast-[1.2] brightness-[0.88] group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100" : ""}`}
                 priority
               />
 
